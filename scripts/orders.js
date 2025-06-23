@@ -1,7 +1,7 @@
 import { orders} from "../data/orders.js";
-import { getProduct, loadProductsFetch } from "../data/products.js";
+import { getProduct, loadProductsFetch, products  } from "../data/products.js";
 import formatCurrency from "./utils/money.js";
-
+import { cart } from "../data/cart-class.js";
 
 loadProductsFetch().then(() => {
   renderOrdersPage();
@@ -63,7 +63,8 @@ orders.forEach((order)=>{
               </div>
               <button class="buy-again-button button-primary">
                 <img class="buy-again-icon" src="images/icons/buy-again.png">
-                <span class="buy-again-message">Buy it again</span>
+                <span class="buy-again-message js-buy-again-message"
+                data-product-id = "${orderProduct.productId}">Buy it again</span>
               </button>
             </div>
 
@@ -83,5 +84,23 @@ orders.forEach((order)=>{
   `;
 document.querySelector('.js-orders-grid').innerHTML = renderOrdersPage;
 console.log(orders);
+
+function updateCartQuantity(){
+        let cartQuantity = 0;
+        cart.cartItems.forEach((cartItem) => {
+            cartQuantity += cartItem.quantity;
+        });
+
+        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+    }
+
+document.querySelectorAll('.js-buy-again-message').forEach((button)=>{
+  button.addEventListener('click', ()=>{
+    const productId = button.dataset.productId;
+    cart.addToCart(productId);
+    //console.log(productId);
+    updateCartQuantity();
+  })
+})
 }
 

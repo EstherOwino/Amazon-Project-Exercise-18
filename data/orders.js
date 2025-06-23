@@ -20,6 +20,6 @@ export function getOrders(productId){
   return orderItems;
 };
 
-//a function to get the products in orders
+//a function to get the products in order
 
 
