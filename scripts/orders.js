@@ -69,8 +69,8 @@ orders.forEach((order)=>{
             </div>
 
             <div class="product-actions">
-              <a href="tracking.html">
-                <button class="track-package-button button-secondary">
+              <a href="tracking.html?orderId=123&productId=456">
+                <button class="track-package-button button-secondary js-track-package-button">
                   Track package
                 </button>
               </a>
@@ -102,5 +102,12 @@ document.querySelectorAll('.js-buy-again-message').forEach((button)=>{
     updateCartQuantity();
   })
 })
+/*
+document.querySelectorAll('.js-track-package-button').forEach((button)=>{
+  button.addEventListener('click', ()=>{
+  window.location.href = "tracking.html";
+  })
+})
+*/
 }
 
