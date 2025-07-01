@@ -6,6 +6,7 @@ import { cart } from "../data/cart-class.js";
 loadProductsFetch().then(() => {
   renderOrdersPage();
 });
+
 function renderOrdersPage(){
 let renderOrdersPage = '';
 
@@ -69,7 +70,7 @@ orders.forEach((order)=>{
             </div>
 
             <div class="product-actions">
-              <a href="tracking.html?orderId=123&productId=456">
+              <a href="tracking.html?orderId=${order.id}&productId=${productId}">
                 <button class="track-package-button button-secondary js-track-package-button">
                   Track package
                 </button>
