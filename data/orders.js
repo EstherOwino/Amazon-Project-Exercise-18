@@ -10,10 +10,10 @@ function saveToStorage(){
 }
 console.log(orders);
 
-export function getOrders(productId){
+export function getOrders(orderId){
   let orderItems;
   orders.forEach((order)=>{
-    if(productId === orders.id ){
+    if(orderId === order.id ){
       orderItems = order;
     }
   });
@@ -21,5 +21,19 @@ export function getOrders(productId){
 };
 
 //a function to get the products in order
+
+export function getOrderProducts(productId){
+  let matchingOrderProducts;
+  orders.forEach((order)=>{
+    order.products.forEach((orderProduct)=>{
+      if(productId === orderProduct.productId){
+        matchingOrderProducts = orderProduct;
+      }
+    });
+  });
+  return matchingOrderProducts;
+}
+
+console.log(getOrderProducts("e43638ce-6aa0-4b85-b27f-e1d07eb678c6"));
 
 

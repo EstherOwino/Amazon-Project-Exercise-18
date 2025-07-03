@@ -103,12 +103,7 @@ document.querySelectorAll('.js-buy-again-message').forEach((button)=>{
     updateCartQuantity();
   })
 })
-/*
-document.querySelectorAll('.js-track-package-button').forEach((button)=>{
-  button.addEventListener('click', ()=>{
-  window.location.href = "tracking.html";
-  })
-})
-*/
 }
+
+console.log(orders);
 
