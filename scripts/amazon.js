@@ -19,8 +19,15 @@ function renderProductsGrid(){
 
         let filteredProducts = products;
         if(search){
+            const searchLower = search.toLowerCase();
             filteredProducts = products.filter((product)=>{
-                return product.name.includes(search);
+                if(product.keywords.includes(searchLower)){
+                    console.log(`Yes, the keyword ${searchLower} exists in ${product.name} product!`);
+                }
+                else{
+                    console.log(`No, the keyword ${searchLower} doesn't exist in ${product.name} product!`);
+                }
+                return product.name.toLowerCase().includes(searchLower);
             })
         }
         filteredProducts.forEach((product)=>{
