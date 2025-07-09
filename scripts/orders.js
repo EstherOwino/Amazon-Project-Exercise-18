@@ -8,11 +8,11 @@ loadProductsFetch().then(() => {
 });
 
 function renderOrdersPage(){
-let renderOrdersPage = '';
+let renderOrdersPage;
 
 orders.forEach((order)=>{
 
-  renderOrdersPage += 
+  renderOrdersPage = 
   `
     <div class="order-container">
           <div class="order-header">
